@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>까르뱅_페이지만들기02</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/slick.css">
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="./js/slick.min.js"></script>
+</head>
+<style>
+    /* banner */
+
+    #header {
+        line-height: 100px;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    }
+
+    #header .inner {
+
+        margin: 10px auto;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #header .inner img {
+        margin: 10px 0 0 150px;
+        width: 250px;
+    }
+
+    #header .gnb a {
+        display: block;
+    }
+
+    #header .gnb>ul {
+        display: flex;
+        gap: 60px;
+        padding: 0 400px;
+    }
+
+    #header .gnb>ul>li {
+        position: relative;
+    }
+
+    #header .gnb>ul>li .smenu {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        line-height: 40px;
+        background: #ddd;
+        color: #333;
+        width: 150px;
+        text-align: center;
+        transform: translate(-50%, 0);
+        z-index: 999;
+        height: 0;
+        transition: 0.5s;
+        overflow: hidden;
+
+    }
+
+    #header .gnb>ul:hover>li .smenu {
+        height: 170px;
+    }
+
+    #header .gnb>ul>li .smenu li~li {
+        border-top: 1px solid #fff;
+    }
+
+    #header .gnb>ul::before {
+        content: "";
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        height: 170px;
+        background: #ddd;
+        z-index: 999;
+        transition: 0.5s;
+        height: 0;
+    }
+
+    #header .gnb>ul:hover::before {
+        height: 170px;
+    }
+
+    #header .inner i {
+        margin: 0 150px 0 0;
+    }
+
+
+
+
+
+
+
+    /* mainSlide */
+    .mainVisual {
+        position: relative;
+        padding: 30px 0;
+    }
+
+    .mainVisual .mainSlide figure {
+        position: relative;
+        height: 570px;
+    }
+
+    .mainVisual .mainSlide .itm01 {
+        background: url(./img/main09.jpg);
+    }
+
+    .mainVisual .mainSlide .itm02 {
+        background: url(./img/main10.jpg);
+    }
+
+    .mainVisual .mainSlide .itm03 {
+        background: url(./img/main11.jpg);
+    }
+
+    .mainVisual .mainSlide .itm04 {
+        background: url(./img/main05.jpg);
+    }
+
+    .mainVisual .mainSlide .itm05 {
+        background: url(./img/main08.jpg);
+    }
+
+    .mainVisual .mainSlide .slick-arrow {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+        background: none;
+        border: none;
+        font-size: 0;
+        width: 80px;
+        height: 80px;
+        border-top: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+    }
+
+
+    .mainVisual .mainSlide .slick-prev {
+        position: absolute;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        margin: 0 0 0 -700px;
+
+    }
+
+    .mainVisual .mainSlide .slick-next {
+        position: absolute;
+        transform: translate(-50%, -50%) rotate(135deg);
+        margin: 0 0 0 700px;
+    }
+
+
+
+
+
+
+
+    /* mainContent */
+
+    .mainContent {
+        padding: 100px 0;
+    }
+
+    .mainContent h2 {
+        font-size: 30px;
+        font-weight: 700;
+        text-align: center;
+        margin: 0 0 10px 0;
+    }
+
+    .mainContent p {
+        font-size: 15px;
+        font-weight: 300;
+        text-align: center;
+        margin: 0 0 40px 0;
+    }
+
+    .mainContent .inner {
+        width: 1500px;
+        margin: 0 auto;
+    }
+
+    .mainContent .id {
+        text-align: center;
+        margin: 10px 0 0 0;
+    }
+
+    .mainContent .pri {
+        text-align: center;
+        margin: 10px 0 0 0;
+    }
+
+    .mainContent .itm a {
+        text-align: center;
+        margin: 10px 0 0 0;
+    }
+
+
+    .pro_list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 30px;
+    }
+
+    .pro_list .itm {
+        overflow: hidden;
+    }
+
+    .pro_slide {
+        border: 1px solid #ddd;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+
+    .pro_slide .slick-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 999;
+        font-size: 0;
+        background: transparent;
+        border: none;
+        outline: none;
+        width: 20px;
+        height: 20px;
+        border-top: 2px solid #ddd;
+        border-left: 2px solid #ddd;
+    }
+
+    .pro_slide .slick-prev {
+        transform: translate(0, -50%) rotate(-45deg);
+        left: 15px;
+    }
+
+    .pro_slide .slick-next {
+        transform: translate(0, -50%) rotate(135deg);
+        right: 15px;
+    }
+
+
+    /* mainProduct */
+
+    .mainProduct {
+        padding: 100px 0;
+        background: #f7f7f7;
+
+    }
+
+    .mainProduct h2 {
+        font-size: 35px;
+        font-weight: 700;
+        margin: 30px 0 30px 0;
+        text-align: center;
+    }
+
+    .mainProduct p {
+        font-size: 18px;
+        font-weight: 300;
+        margin: 0 0 60px 0;
+        text-align: center;
+    }
+
+    .mainProduct .inner {
+        display: flex;
+        gap: 30px;
+        width: 1800px;
+        margin: 0 auto;
+    }
+
+
+    .mainProduct .inner figure {
+        flex: 1;
+        text-align: center;
+    }
+
+    .mainProduct figure img {
+        width: 100%;
+    }
+
+    .mainProduct .img_box {
+        margin: 0 0 20px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mainProduct .img_box .service {
+        position: absolute;
+        top: 0;
+        right: -40px;
+        background: #333;
+        color: #fff;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        padding: 0 10px;
+        font-size: 20px;
+        transition: 0.3s;
+
+    }
+
+    .mainProduct .img_box:hover .service {
+        right: 0;
+    }
+
+    .mainProduct .img_box img {
+        transition: 0.3s;
+    }
+
+    .mainProduct .img_box:hover img {
+        transform: translate(-40px, 0);
+    }
+
+    .mainProduct strong {
+        display: block;
+        margin: 20px 0 20px 0;
+        text-align: center;
+    }
+
+    .mainProduct a {
+        display: inline-block;
+        padding: 5px 25px;
+        background: #333;
+        color: #fff;
+    }
+
+    .mainProduct a:hover {
+        background: hsl(0, 59%, 43%);
+        color: #fff;
+    }
+
+
+
+
+
+
+
+    /* mainCustomer */
+
+    .mainCustomer {
+        padding: 200px 0;
+        text-align: center;
+        background: url(./img/main000.jpg) no-repeat fixed center center/cover;
+        color: #fff;
+
+    }
+
+
+    .mainCustomer h2 {
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0 0 30px 0;
+        text-shadow: 0 0 1px #000;
+    }
+
+    .mainCustomer p {
+        line-height: 25px;
+        word-break: keep-all;
+        font-size: 15px;
+        font-weight: 600;
+        margin: 0 0 30px 0;
+        text-shadow: 0 0 2px #000;
+    }
+
+    .mainCustomer i {
+        background: #333;
+        padding: 10px;
+        border-radius: 50%;
+    }
+
+    .mainCustomer span {
+        vertical-align: 2px;
+        margin: 0 10px 0 0;
+    }
+
+
+
+
+
+
+
+    /* main_event */
+
+
+
+    .video iframe {
+        position: relative;
+        height: 200px;
+        width: 380px;
+        display: flex;
+        background: center;
+
+    }
+
+
+
+    .main_event {
+        padding: 100px 0;
+        background: #f9f9f9;
+    }
+
+    .main_event .inner {
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        gap: 30px;
+
+    }
+
+
+
+    .main_event .inner>div {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .main_event .tab_menu {
+        display: table;
+        width: 100%;
+    }
+
+    .main_event .tab_menu>li {
+        display: table-cell;
+
+
+    }
+
+    .main_event .tab_menu>li~li {
+        border-left: 1px solid transparent;
+    }
+
+    .main_event .tab_menu>li a {
+        display: block;
+        padding: 10px 60px 10px 10px;
+        color: #fff;
+        background: #a10d0d;
+    }
+
+    .main_event .tab_menu>li.on a {
+        background: #333;
+
+    }
+
+    .main_event .tab_content>li {
+        display: none;
+        line-height: 36px;
+    }
+
+    .main_event .tab_content>li.on {
+        display: block;
+    }
+
+    .main_event .tab_content>li a {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+
+    }
+
+
+    .main_event .tab_content>li li {
+        justify-content: space-between;
+        display: flex;
+        border-bottom: 1px solid #ddd;
+        overflow: hidden;
+    }
+
+    .main_event .tab_content>li li span {
+        margin: 0 0 0 20px;
+    }
+
+    .main_event .right img {
+        width: 100%;
+        height: 200px;
+    }
+
+
+
+
+
+
+
+
+
+    /* footer */
+
+
+    .footer {
+        background: #343a40;
+        color: #f8f9fa;
+        padding: 0 0 50px 0;
+    }
+
+    .footer .top {
+        line-height: 80px;
+        border-bottom: 1px solid#555;
+    }
+
+    .footer .inner {
+        display: flex;
+        justify-content: space-between;
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer .top .left {
+        font-size: 0;
+    }
+
+    .footer .top .left li {
+        display: inline-block;
+        font-size: 15px;
+
+    }
+
+    .footer .top .left li~li::before {
+        content: "";
+        margin: 0 20px;
+        display: inline-block;
+        width: 1px;
+        height: 11px;
+        background: #ddd;
+    }
+
+    .footer .top .right {
+        display: flex;
+        gap: 2px;
+    }
+
+    .footer .top .right i {
+        font-size: 20px;
+        padding: 10px;
+        background: #333;
+        border-radius: 50%;
+    }
+
+    .footer .bottom {
+        margin: 20px 0 0 0;
+        line-height: 25px;
+        text-align: left;
+        font-size: 15px;
+        font-weight: 20px;
+    }
+
+
+    #f_link {
+        border: none;
+        outline: none;
+        padding: 5px 20px;
+        background: #343a40;
+        border: 1px solid #555;
+    }
+
+    #f_link option {
+        padding: 5px 20px;
+    }
+
+
+
+    /* .mainVisual .inner .dots {
+        display: flex;
+        gap: 4px;
+        justify-content: center;
+ } */
+</style>
+
+<body>
+
+    <!-- banner -->
+    <div class="Wrap">
+        <header id="header">
+            <div class="inner">
+                <h1>
+                    <a href="/">
+                        <img src="./img/logo.png" alt="">
+                    </a>
+                </h1>
+                <nav class="gnb">
+                    <ul>
+                        <li>
+                            <a href="">menu01</a>
+                            <ul class="smenu">
+                                <li><a href="">smenu01</a></li>
+                                <li><a href="">smenu02</a></li>
+                                <li><a href="">smenu03</a></li>
+                                <li><a href="">smenu04</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">menu02</a>
+                            <ul class="smenu">
+                                <li><a href="">smenu01</a></li>
+                                <li><a href="">smenu02</a></li>
+                                <li><a href="">smenu03</a></li>
+                                <li><a href="">smenu04</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">menu03</a>
+                            <ul class="smenu">
+                                <li><a href="">smenu01</a></li>
+                                <li><a href="">smenu02</a></li>
+                                <li><a href="">smenu03</a></li>
+                                <li><a href="">smenu04</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">menu04</a>
+                            <ul class="smenu">
+                                <li><a href="">smenu01</a></li>
+                                <li><a href="">smenu02</a></li>
+                                <li><a href="">smenu03</a></li>
+                                <li><a href="">smenu04</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">menu05</a>
+
+                            <ul class="smenu">
+                                <li><a href="">smenu01</a></li>
+                                <li><a href="">smenu02</a></li>
+                                <li><a href="">smenu03</a></li>
+                                <li><a href="">smenu04</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="link"><i class="xi-bars"></i>
+                </div>
+            </div>
+        </header>
+    </div>
+    <!-- banner -->
+
+
+
+
+    <!-- mainSlide -->
+    <main>
+        <section class="mainVisual">
+            <div class="mainSlide">
+                <figure class="itm01"></figure>
+                <figure class="itm02"></figure>
+                <figure class="itm03"></figure>
+                <figure class="itm04"></figure>
+                <figure class="itm05"></figure>
+            </div>
+            <div class="inner">
+                <!-- <ul class="dots">
+                    <li><button>01</button></li>
+                    <li><button>02</button></li>
+                    <li><button>03</button></li>
+                    <li><button>04</button></li>
+                    <li><button>05</button></li>
+                </ul> -->
+            </div>
+        </section>
+
+        <section class="mainContent">
+            <h2>BEST COLLECTION</h2>
+            <P>CARVEN EYEWEAR</P>
+            <div class="inner pro_list">
+                <div class="itm">
+                    <div class="box pro_slide">
+                        <figure>
+                            <img src="./img/gls.jpg" alt="">
+                        </figure>
+                        <figure>
+                            <img src="./img/gls02.jpg" alt="">
+                        </figure>
+                        <figure>
+                            <img src="./img/gls03.jpg" alt="">
+                        </figure>
+
+                    </div>
+                    <div class="id">pandora 판도라</div>
+                    <div class="pri">298,000 ￦</div>
+
+                </div>
+                <div class="itm">
+                    <div class="box pro_slide">
+                        <figure>
+                            <img src="./img/gls04.jpg" alt="">
+                        </figure>
+                        <figure>
+                            <img src="./img/gls05.jpg" alt="">
+                        </figure>
+                        <figure>
+                            <img src="./img/gls06.jpg" alt="">
+                        </figure>
+
+                    </div>
+                    <div class="id">taylor 테일러</div>
+                    <div class="pri">265,000 ￦</div>
+
+                </div>
+                <div class="itm">
+                    <div class="box pro_slide">
+                        <figure>
+                            <img src="./img/gls11.jpg" alt="">
+                        </figure>
+                        <figure>
+                            <img src="./img/gls12.jpg" alt="">
+                        </figure>
+                        <figure>
+                            <img src="./img/gls13.jpg" alt="">
+                        </figure>
+
+                    </div>
+                    <div class="id">solid 솔리드</div>
+                    <div class="pri">198,000 ￦</div>
+
+                </div>
+                <div class="itm">
+                    <div class="box pro_slide">
+                        <figure>
+                            <img src="./img/gls21.jpg" alt="">
+                        </figure>
+                        <figure>
+                            <img src="./img/gls22.jpg" alt="">
+                        </figure>
+                        <figure>
+                            <img src="./img/gls23.jpg" alt="">
+                        </figure>
+
+                    </div>
+                    <div class="id">jessy 제시</div>
+                    <div class="pri">250,000 ￦</div>
+
+                </div>
+                <div class="itm">
+                    <div class="box pro_slide">
+                        <figure>
+                            <img src="./img/gls31.jpg" alt="">
+                        </figure>
+                        <figure>
+                            <img src="./img/gls32.jpg" alt="">
+                        </figure>
+                        <figure>
+                            <img src="./img/gls33.jpg" alt="">
+                        </figure>
+
+                    </div>
+                    <div class="id">woody 우디</div>
+                    <div class="pri">298,000 ￦</div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="mainProduct">
+            <h2> CARVEN CLASSIC</h2>
+            <P>온라인 스마스 스토어</P>
+            <div class="inner">
+                <figure>
+                    <div class="img_box">
+                        <img src="./img/gls12.jpg" alt="">
+                        <div class="service">
+                            <i class="xi-cart-o"></i>
+
+                            <i class="xi-heart-o"></i>
+                        </div>
+                    </div>
+                    <strong>pandora </strong>
+                    <a href="#!">BUY</a>
+                </figure>
+                <figure>
+                    <div class="img_box">
+                        <img src="./img/gls08.jpg" alt="">
+                        <div class="service">
+                            <i class="xi-cart-o"></i>
+
+                            <i class="xi-heart-o"></i>
+                        </div>
+                    </div>
+                    <strong>taylor </strong>
+                    <a href="#!">BUY</a>
+                </figure>
+                <figure>
+                    <div class="img_box">
+                        <img src="./img/gls22.jpg" alt="">
+                        <div class="service">
+                            <i class="xi-cart-o"></i>
+
+                            <i class="xi-heart-o"></i>
+                        </div>
+                    </div>
+                    <strong>solid</strong>
+                    <a href="#!">BUY</a>
+                </figure>
+                <figure>
+                    <div class="img_box">
+                        <img src="./img/GLS50.jpg" alt="">
+                        <div class="service">
+                            <i class="xi-cart-o"></i>
+
+                            <i class="xi-heart-o"></i>
+                        </div>
+                    </div>
+                    <strong>woody</strong>
+                    <a href="#!">BUY</a>
+                </figure>
+            </div>
+        </section>
+        </section>
+
+        <section class="mainCustomer">
+            <h2>ABOUT CARVEN</h2>
+            <p>
+                '카르멘 드 토마조(Carmen de Tommaso)'에 의해 1945년 프랑스 파리에서 설립된 오뜨꾸띄르 하우스 'CARVEN'
+
+                인테리어 디자인으로 시작하여 <br />
+                키가 작은 여성들을 위한 브랜드를 런칭하기까지 다른 브랜드와 차별화된 페미닌한 장식과 현실적인 디자인을 고수했다.<br />
+
+                50년대 처음 선보였던 스카프와 향수는 지금까지 이어지고있으며, 60~70년대는 항공사의 유니폼을, 1968년엔 남성복 라인을 런칭하는 등 왕성한 활동을 선보였다.<br />
+
+                이를 이어 받아 지방시 출신의 아트 디렉터 Guillaume Henry가 오뜨꾸띄르 하우스였던 CARVEN을 유연하게 해석하여 새로운 스토리를 썼다.<br />
+
+                파리 유명 셀렉트의 전폭적인 지지아래 CARVEN은 프랑스를 비롯한 이태리, 벨기에, 미국, 일본, 홍콩 등에서 판매하며 거품을 뺀 합리적인 가격과<br />
+
+                CARVEN의 DNA를 살린 심플한 우아함, 페미닌 시크를 앞세워 프렌치한 터치를 보여주고 있다.
+            </p>
+            <span>more</span>
+            <I class="xi-arrow-right"></I>
+
+        </section>
+
+
+
+
+
+
+
+        <section class="main_event">
+            <div class="inner">
+                <div class="left">
+                    <ul class="tab_menu">
+                        <li class="on"><a href="">Tequipment</a></li>
+                        <li><a href="">Classic</a></li>
+                        <li><a href="">Events</a></li>
+                    </ul>
+                    <ul class="tab_content">
+                        <li class="on">
+                            <ul class="list">
+                                <li><a href="#!">25년 이상의 지식과 경험을 바탕으로 제작되는 포르쉐 테큅먼트(Porsche Tequipment) 순정 액세서리가
+                                        의미하는 것은 오직 한 가지,
+                                        포르쉐에 걸맞은 품질입니다.</a><span>[2022.12.01]</span></li>
+                                <li><a href="#!">25년 이상의 지식과 경험을 바탕으로 제작되는 포르쉐 테큅먼트(Porsche Tequipment) 순정 액세서리가
+                                        의미하는
+                                        것은 오직 한 가지,
+                                        포르쉐에 걸맞은 품질입니다.</a><span>[2022.12.01]</span></li>
+                                <li><a href="#!">25년 이상의 지식과 경험을 바탕으로 제작되는 포르쉐 테큅먼트(Porsche Tequipment) 순정 액세서리가
+                                        의미하는
+                                        것은 오직 한 가지,
+                                        포르쉐에 걸맞은 품질입니다.</a><span>[2022.12.01]</span></li>
+                                <li><a href="#!">25년 이상의 지식과 경험을 바탕으로 제작되는 포르쉐 테큅먼트(Porsche Tequipment) 순정 액세서리가
+                                        의미하는
+                                        것은 오직 한 가지,
+                                        포르쉐에 걸맞은 품질입니다.</a><span>[2022.12.01]</span></li>
+                                <li><a href="#!">25년 이상의 지식과 경험을 바탕으로 제작되는 포르쉐 테큅먼트(Porsche Tequipment) 순정 액세서리가
+                                        의미하는
+                                        것은 오직 한 가지,
+                                        포르쉐에 걸맞은 품질입니다.</a><span>[2022.12.01]</span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">
+                                <ul class="list">
+                                    <li><a href="#!">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                            Eveniet, explicabo?</a><span>[2022.12.01]</span></li>
+                                    <li><a href="#!">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                            Eveniet, explicabo?</a><span>[2022.12.01]</span></li>
+                                    <li><a href="#!">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                            Eveniet, explicabo?</a><span>[2022.12.01]</span></li>
+                                    <li><a href="#!">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                            Eveniet, explicabo?</a><span>[2022.12.01]</span></li>
+                                    <li><a href="#!">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                            Eveniet, explicabo?</a><span>[2022.12.01]</span></li>
+                                </ul>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <ul class="list">
+                                    <li><a href="#!">The Porsche Classic parts range includes more than 60,000
+                                            genuine
+                                            parts that are available to you from any Porsche Classic Partner or
+                                            Porsche Centre around the world.
+
+                                        </a><span>[2022.12.01]</span></li>
+                                    <li><a href="#!">The Porsche Classic parts range includes more than 60,000
+                                            genuine
+                                            parts that are available to you from any Porsche Classic Partner or
+                                            Porsche Centre around the world.
+
+                                        </a><span>[2022.12.01]</span></li>
+                                    <li><a href="#!">The Porsche Classic parts range includes more than 60,000
+                                            genuine
+                                            parts that are available to you from any Porsche Classic Partner or
+                                            Porsche Centre around the world.
+
+                                        </a><span>[2022.12.01]</span></li>
+                                    <li><a href="#!">The Porsche Classic parts range includes more than 60,000
+                                            genuine
+                                            parts that are available to you from any Porsche Classic Partner or
+                                            Porsche Centre around the world.
+
+                                        </a><span>[2022.12.01]</span></li>
+                                    <li><a href="#!">The Porsche Classic parts range includes more than 60,000
+                                            genuine
+                                            parts that are available to you from any Porsche Classic Partner or
+                                            Porsche Centre around the world.
+
+                                        </a><span>[2022.12.01]</span></li>
+                                </ul>
+
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="video">
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/YHdyKxuFBfI?autoplay=1&mute=1&loop=1"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+
+
+
+                <div class="right">
+                    <figure>
+                        <img src="./img/main04.jpg" alt="">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="top">
+            <div class="inner">
+                <ul class="left">
+                    <li><a href="">이용약관</a></li>
+                    <li><a href="">문의하기</a></li>
+                    <li><a href="">개인정보 취급방침</a></li>
+                    <li><a href="">방문 예약하기</a></li>
+                    <li><a href="">오시는길</a></li>
+                </ul>
+                <ul class="right">
+                    <li><a href="https://www.instagram.com/" target="_blank"><i class="xi-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/" target="_blank"><i class="xi-youtube"></i></a></li>
+                    <li><a href="https://www.naver.com/" target="_blank"><i class="xi-naver"></i></a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="inner">
+                <address class="left">
+
+                    COMPANY. 투페이스옵티칼 | OWNER. 고대우 | Biz Licence. 504-30-40836 | 통신판매 No. 2018-대구북구-0548
+
+                    BANK. 053-353-7851 국민은행 / 투페이스(고대우) |BUSINESS HOURS. Mon-Fri AM 09:00~18:00 Sat,Sun,Red-Day Off |
+                    e-MAIL dt14@naver.com
+
+                    CS CENTER. 053-353-7851 | ADDRESS. 대구광역시 북구 3공단로 240 아이빌 610호 (반품/교환은 고객센터에 미리 접수 후 보내주세요)
+
+                </address>
+                <div class="right">
+                    <from action="">
+                        <select id="f_link">
+                            <option value="">family link</option>
+                            <option value="http://naver.com">naver</option>
+                            <option value="">daum</option>
+                            <option value="">google</option>
+                        </select>
+                    </from>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        $(function () {
+            $('.mainSlide').slick({
+                arrows: true,
+                autoplay: true,
+                pauseOnHover: false,
+                pauseOnFocus: false
+            });
+            $('.pro_slide').slick({
+
+            })
+
+
+        })
+
+    </script>
+</body>
+
+</html>
